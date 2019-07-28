@@ -6,55 +6,30 @@
 
 using namespace Rcpp;
 
-// rcpparma_hello_world
-arma::mat rcpparma_hello_world();
-RcppExport SEXP _simCTMC_rcpparma_hello_world() {
+// intensityFunc
+double intensityFunc(double t, double baserate);
+RcppExport SEXP _simCTMC_intensityFunc(SEXP tSEXP, SEXP baserateSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpparma_hello_world());
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_outerproduct
-arma::mat rcpparma_outerproduct(const arma::colvec& x);
-RcppExport SEXP _simCTMC_rcpparma_outerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_outerproduct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_innerproduct
-double rcpparma_innerproduct(const arma::colvec& x);
-RcppExport SEXP _simCTMC_rcpparma_innerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_innerproduct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_bothproducts
-Rcpp::List rcpparma_bothproducts(const arma::colvec& x);
-RcppExport SEXP _simCTMC_rcpparma_bothproducts(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_bothproducts(x));
+    Rcpp::traits::input_parameter< double >::type t(tSEXP);
+    Rcpp::traits::input_parameter< double >::type baserate(baserateSEXP);
+    rcpp_result_gen = Rcpp::wrap(intensityFunc(t, baserate));
     return rcpp_result_gen;
 END_RCPP
 }
 
+RcppExport SEXP _simCTMC_rcpparma_bothproducts(SEXP);
+RcppExport SEXP _simCTMC_rcpparma_hello_world();
+RcppExport SEXP _simCTMC_rcpparma_innerproduct(SEXP);
+RcppExport SEXP _simCTMC_rcpparma_outerproduct(SEXP);
+
 static const R_CallMethodDef CallEntries[] = {
-    {"_simCTMC_rcpparma_hello_world", (DL_FUNC) &_simCTMC_rcpparma_hello_world, 0},
-    {"_simCTMC_rcpparma_outerproduct", (DL_FUNC) &_simCTMC_rcpparma_outerproduct, 1},
-    {"_simCTMC_rcpparma_innerproduct", (DL_FUNC) &_simCTMC_rcpparma_innerproduct, 1},
+    {"_simCTMC_intensityFunc", (DL_FUNC) &_simCTMC_intensityFunc, 2},
     {"_simCTMC_rcpparma_bothproducts", (DL_FUNC) &_simCTMC_rcpparma_bothproducts, 1},
+    {"_simCTMC_rcpparma_hello_world",  (DL_FUNC) &_simCTMC_rcpparma_hello_world,  0},
+    {"_simCTMC_rcpparma_innerproduct", (DL_FUNC) &_simCTMC_rcpparma_innerproduct, 1},
+    {"_simCTMC_rcpparma_outerproduct", (DL_FUNC) &_simCTMC_rcpparma_outerproduct, 1},
     {NULL, NULL, 0}
 };
 
