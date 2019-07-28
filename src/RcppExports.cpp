@@ -19,17 +19,8 @@ BEGIN_RCPP
 END_RCPP
 }
 
-RcppExport SEXP _simCTMC_rcpparma_bothproducts(SEXP);
-RcppExport SEXP _simCTMC_rcpparma_hello_world();
-RcppExport SEXP _simCTMC_rcpparma_innerproduct(SEXP);
-RcppExport SEXP _simCTMC_rcpparma_outerproduct(SEXP);
-
 static const R_CallMethodDef CallEntries[] = {
     {"_simCTMC_intensityFunc", (DL_FUNC) &_simCTMC_intensityFunc, 2},
-    {"_simCTMC_rcpparma_bothproducts", (DL_FUNC) &_simCTMC_rcpparma_bothproducts, 1},
-    {"_simCTMC_rcpparma_hello_world",  (DL_FUNC) &_simCTMC_rcpparma_hello_world,  0},
-    {"_simCTMC_rcpparma_innerproduct", (DL_FUNC) &_simCTMC_rcpparma_innerproduct, 1},
-    {"_simCTMC_rcpparma_outerproduct", (DL_FUNC) &_simCTMC_rcpparma_outerproduct, 1},
     {NULL, NULL, 0}
 };
 
