@@ -29,7 +29,7 @@ double q_31 (double x) {return 2.*sin(2.0*M_PI*x) + 2.;}
 double q_32 (double x) {return 2.*cos(2.*M_PI*(x+.1/4)) + 2.;}
 
 // [[Rcpp::export]] 
-arma::mat Qmat(double t, double a = 1., double b = 0., double c = 1.0) {
+arma::mat Qmat(double t, double a = 1., double b = 0., double c = 2.0) {
   arma::mat Q(5,5);
   Q.zeros();
   Q(0,0) = -(q_12(t,a,b,c)+q_13(t));
@@ -71,7 +71,7 @@ Rcpp::NumericVector Sim_next_State(double i, double JumpT, double a = 1., double
 }
 
 // [[Rcpp::export]] 
-Rcpp::List FiveStateSimulation(double a = 1., double b = 0., double c = 1.0) {
+Rcpp::List FiveStateSimulation(double a = 1., double b = 0., double c = 2.0) {
   Rcpp::NumericVector TimePoints = Jump_times();
   int N = TimePoints.size();
   double First = Sim_first_State();
@@ -93,7 +93,7 @@ Rcpp::List transition_times(double s0 = 1.0,
   double s1 = 2.0,
   double a = 1., 
   double b = 0., 
-  double c = 1.0) {
+  double c = 2.0) {
 
   Rcpp::List A;
   A = FiveStateSimulation(a,b,c);
