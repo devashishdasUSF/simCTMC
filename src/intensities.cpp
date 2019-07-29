@@ -96,7 +96,7 @@ Rcpp::List transition_times(double s0 = 1.0,
   double c = 1.0) {
 
   Rcpp::List A;
-  A = UniformSimulation(a,b,c);
+  A = FiveStateSimulation(a,b,c);
   Rcpp::NumericVector S = A[0];
   Rcpp::NumericVector T = A[1];
   Rcpp::NumericVector index(S.size()-1,0);
