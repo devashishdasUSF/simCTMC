@@ -5,3 +5,19 @@ intensityFunc <- function(t, baserate = 1.0) {
     .Call(`_simCTMC_intensityFunc`, t, baserate)
 }
 
+Qmat <- function(t, a = 1., b = 0., c = 1.0) {
+    .Call(`_simCTMC_Qmat`, t, a, b, c)
+}
+
+Sim_first_State <- function() {
+    .Call(`_simCTMC_Sim_first_State`)
+}
+
+FiveStateSimulation <- function(a = 1., b = 0., c = 1.0) {
+    .Call(`_simCTMC_FiveStateSimulation`, a, b, c)
+}
+
+transition_times <- function(s0 = 1.0, s1 = 2.0, a = 1., b = 0., c = 1.0) {
+    .Call(`_simCTMC_transition_times`, s0, s1, a, b, c)
+}
+
